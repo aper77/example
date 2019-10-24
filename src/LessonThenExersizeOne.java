@@ -3,11 +3,15 @@ import java.util.stream.Stream;
 
 public class LessonThenExersizeOne {
     public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        numbers.add(22);
-        numbers.add(10);
-        numbers.add(51);
-        Stream<Integer> streamFromCollection = numbers.stream();
-        numbers.stream().forEach(x-> System.out.println(x +2));
+        ArrayList<String> str = new ArrayList<>();
+        str.add("He");
+        str.add("nam");
+        str.add("p");
+        str.add("jav");
+       // System.out.println(str);
+        Stream<String> strim = str.stream();
+        str.stream().filter(s -> s.length()  ==3).forEach(System.out::println);
+        //оставить только те слава у которых количество букв ровно 3;
+
     }
 }
