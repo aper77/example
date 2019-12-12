@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 
 /**
- * Created by infuntis on 15/01/17.
+ * класс создает игровое поле
  */
 public class GameField extends JPanel implements ActionListener{
     private final int SIZE = 320;
@@ -37,7 +37,9 @@ public class GameField extends JPanel implements ActionListener{
         setFocusable(true);
 
     }
-
+    /**
+     *  метод каторий начинает  игру
+     */
     public void initGame(){
         dots = 3;
         for (int i = 0; i < dots; i++) {
@@ -48,7 +50,9 @@ public class GameField extends JPanel implements ActionListener{
         timer.start();
         createApple();
     }
-
+    /**
+     * саздаём яблоки
+     */
     public void createApple(){
         appleX = new Random().nextInt(20)*DOT_SIZE;
         appleY = new Random().nextInt(20)*DOT_SIZE;
@@ -61,6 +65,9 @@ public class GameField extends JPanel implements ActionListener{
         dot = iid.getImage();
     }
 
+    /**
+     * отображать яблоки
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -77,7 +84,9 @@ public class GameField extends JPanel implements ActionListener{
             g.drawString(str,125,SIZE/2);
         }
     }
-
+    /**
+     * переместить змейку
+     */
     public void move(){
         for (int i = dots; i > 0; i--) {
             x[i] = x[i-1];
@@ -94,14 +103,18 @@ public class GameField extends JPanel implements ActionListener{
             y[0] += DOT_SIZE;
         }
     }
-
+    /**
+     *проверис место  и саздать  ябложку
+     */
     public void checkApple(){
         if(x[0] == appleX && y[0] == appleY){
             dots++;
             createApple();
         }
     }
-
+    /**
+     *проверяет в игре ты или нет
+     */
     public void checkCollisions(){
         for (int i = dots; i >0 ; i--) {
             if(i>4 && x[0] == x[i] && y[0] == y[i]){
@@ -122,7 +135,9 @@ public class GameField extends JPanel implements ActionListener{
             inGame = false;
         }
     }
-
+    /**
+     * проверяет в игре ты или нет
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(inGame){
@@ -133,7 +148,9 @@ public class GameField extends JPanel implements ActionListener{
         }
         repaint();
     }
-
+    /**
+     *работа с кнопками
+     */
     class FieldKeyListener extends KeyAdapter{
         @Override
         public void keyPressed(KeyEvent e) {

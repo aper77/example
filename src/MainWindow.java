@@ -1,6 +1,10 @@
 import javax.swing.*;
 
+/**
+ * класс создает окно
+ */
 public class MainWindow extends JFrame {
+
     public MainWindow(){
         setTitle("Snake");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
