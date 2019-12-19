@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 
 /**
- * класс создает игровое поле
+ * class creates a playing field
  */
 public class GameField extends JPanel implements ActionListener{
     private final int SIZE = 320;
@@ -38,7 +38,7 @@ public class GameField extends JPanel implements ActionListener{
 
     }
     /**
-     *  метод каторий начинает  игру
+     *method that starts the game
      */
     public void initGame(){
         dots = 3;
@@ -51,7 +51,7 @@ public class GameField extends JPanel implements ActionListener{
         createApple();
     }
     /**
-     * саздаём яблоки
+     * create apples
      */
     public void createApple(){
         appleX = new Random().nextInt(20)*DOT_SIZE;
@@ -66,7 +66,7 @@ public class GameField extends JPanel implements ActionListener{
     }
 
     /**
-     * отображать яблоки
+     * show apples
      */
     @Override
     protected void paintComponent(Graphics g) {
@@ -85,7 +85,7 @@ public class GameField extends JPanel implements ActionListener{
         }
     }
     /**
-     * переместить змейку
+     * move the snake
      */
     public void move(){
         for (int i = dots; i > 0; i--) {
@@ -104,7 +104,7 @@ public class GameField extends JPanel implements ActionListener{
         }
     }
     /**
-     *проверис место  и саздать  ябложку
+     * check the place and create an apple
      */
     public void checkApple(){
         if(x[0] == appleX && y[0] == appleY){
@@ -113,7 +113,7 @@ public class GameField extends JPanel implements ActionListener{
         }
     }
     /**
-     *проверяет в игре ты или нет
+     * checks whether you are in the game or not
      */
     public void checkCollisions(){
         for (int i = dots; i >0 ; i--) {
@@ -136,7 +136,7 @@ public class GameField extends JPanel implements ActionListener{
         }
     }
     /**
-     * проверяет в игре ты или нет
+     * checks whether you are in the game or not
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -149,7 +149,7 @@ public class GameField extends JPanel implements ActionListener{
         repaint();
     }
     /**
-     *работа с кнопками
+     * work with buttons
      */
     class FieldKeyListener extends KeyAdapter{
         @Override
