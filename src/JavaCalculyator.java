@@ -2,9 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class JavaCalculyator {
-    //JFrame myFrame = new JFrame("Our first Game");
-    //JButton myButton = new JButton();
-
 
     public static void main(String[] args) {
         //Create Panel
